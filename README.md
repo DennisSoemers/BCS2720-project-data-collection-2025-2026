@@ -4,7 +4,14 @@ This repository is for collaborative data collection for the BCS2720 (AI & ML mo
 
 ## How to contribute data
 
-Students are not granted commiting / pushing rights to the [centralised, official version of this repo](https://github.com/DennisSoemers/BCS2720-project-data-collection-2025-2026). Therefore, it is not possible for students to push data directly. Instead, they are expected to created their own [fork of the repo](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo). There should probably be one fork per group of students, but in principle it is possible to have forks for individual students (or even multiple forks for a single student). In your own fork, you can freely commit and push changes (e.g., adding new data). When you have new changes that you think are ready to be used by the larger community, you can [submit a new Pull Request](https://github.com/DennisSoemers/BCS2720-project-data-collection-2025-2026/pulls) for it to be merged into the repo. This will be reviewed by one of the Project Examiners or Coordinators, and merged if everything seems in order.
+Students are not granted commiting / pushing rights to the [centralised, official version of this repo](https://github.com/DennisSoemers/BCS2720-project-data-collection-2025-2026). Therefore, it is not possible for students to push data directly. Instead, they are expected to created their own [fork of the repo](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo). There should probably be one fork per group of students, but in principle it is possible to have forks for individual students (or even multiple forks for a single student). In your own fork, you can freely commit and push changes (e.g., adding new data). When you have new changes that you think are ready to be used by the larger community, you can [submit a new Pull Request](https://github.com/DennisSoemers/BCS2720-project-data-collection-2025-2026/pulls) for it to be merged into the repo. This will be reviewed by one of the Project Examiners or Coordinators, and merged if everything seems in order. Please make sure to follow these guidelines:
+
+- Only modify the contents of the directory corresponding to your group. For example, this is the [Group 1](/Group%201) directory for Group 1.
+- Make sure to include adequate documentation in your uploaded files, describing the format of your data (what do the rows/columns mean, how were they measured/computed).
+
+## How to benefit from other groups' data
+
+While you are not supposed to modify files in the directories of other groups, you are free to download and use them. It is recommended to regularly merge the centralised repo back into your own fork, such that you can work with just a single data repo (your fork) on your machine.
 
 ## Notes on licensing
 
