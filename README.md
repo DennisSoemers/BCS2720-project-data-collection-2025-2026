@@ -8,6 +8,8 @@ Students are not granted commiting / pushing rights to the [centralised, officia
 
 - Only modify the contents of the directory corresponding to your group. For example, this is the [Group 1](/Group%201) directory for Group 1.
 - Make sure to include adequate documentation in your uploaded files, describing the format of your data (what do the rows/columns mean, how were they measured/computed).
+- Do not ever delete or overwrite data that has already previously been pushed to the central repository. Even if you no longer intend to be using that data, others might. Include some form of versioning scheme in your filenames / folder structure if new files are just new versions of previous files. Write documentation to make it clear what changed / point out if certain older files turned out to be erroneous or are deprecated for other reasons.
+- In addition to data, you could include helper code to handle correct loading of your data.
 
 ## How to benefit from other groups' data
 
