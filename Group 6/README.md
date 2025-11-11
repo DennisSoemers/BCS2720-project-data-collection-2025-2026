@@ -1,7 +1,11 @@
-# Summary and Validation
-```summary_report.md``` and ```validation_report.md``` provide a glance on results with plots and data validation checks.
+# Group 6
 
-# Understanding Results
+## Additional files
+[```summary_report.md```](https://github.com/omarelfiki/unity-ml-drl-data/blob/main/data/summary_report.md) and [```validation_report.md```](https://github.com/omarelfiki/unity-ml-drl-data/tree/main/data/validation_report.md) provide a quick glance on results with plots and data validation checks.
+
+[```thresholds/```](https://github.com/omarelfiki/unity-ml-drl-data/blob/main/data/thresholds) provides the archived threshold at each data collection point based on datetime.
+
+## Understanding Results
 
 ### Research Question
 Can we predict the time-to-threshold, denoting number of training steps and wall-clock time required for
@@ -38,6 +42,7 @@ an agent to reach a performance threshold using initial configuration and early 
 | `entropy_mean`                | float    | Average policy entropy                                          |
 | `entropy_mean_step`           | int      | Step index where entropy aggregation starts                     |
 | `threshold_value`             | float    | Target reward threshold                                         |
+| `threshold_version`           | datetime | Thresholds used at the time of training                         |
 | `steps_to_threshold`          | int      | Step taken to reach threshold                                   |
 | `time_to_threshold`           | int      | Time in seconds to reach the threshold                          |
 | `run_reached_threshold`       | bool     | Whether the threshold was reached                               |
