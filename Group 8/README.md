@@ -2,7 +2,7 @@
 First, group members add generated data to the [forked repository](https://github.com/qba24qba/BCS2720-project-data-collection-2025-2026.git) where they can still be edited.
  The finalized data are merged into the [collaborative collection repository](https://github.com/DennisSoemers/BCS2720-project-data-collection-2025-2026) via the pull request and are not deleted nor overwritten as they might be currently used by others. 
 
- ## Data Documenation
+ ## Data Documentation
 
 One row equals one ML-Agents training run. Features capture hardware, environment, [hyperparameters configuration](https://unity-technologies.github.io/ml-agents/Training-Configuration-File/) (from YAML). Targets capture runtime and performance outcomes.
 The data is stored in CSV file (UTF-8).
@@ -39,7 +39,7 @@ The data is stored in CSV file (UTF-8).
 | cpu_util_mean_pct         | float         | %          | feature           | ~55--80                                     |
 | ram_peak_mb               | float         | MB         | **target**        | e.g., 7350                                  |
 | gpu_util_mean_pct         | float - null | %      | feature           | e.g., 45.0 / null                           |
-| notes                     | string        | --         | meta              | free text                                   |
+| notes                     | string        | --         | meta              | any additional notes                                   |
 
 ## File naming
 
