@@ -1,49 +1,73 @@
 # Group 8
 First, group members add generated data to the [forked repository](https://github.com/qba24qba/BCS2720-project-data-collection-2025-2026.git) where they can still be edited.
- The finalized data are merged into the [collaborative collection repository](https://github.com/DennisSoemers/BCS2720-project-data-collection-2025-2026) via the pull request and are not deleted nor overwritten as they might be currently used by others. 
+ The finalized data are merged into the [collaborative collection repository](https://github.com/DennisSoemers/BCS2720-project-data-collection-2025-2026) via the pull request and are not deleted nor overwritten as they might be currently used by others. Committed files should be stored in the directory with the name ```YYYYMMDD__HHMM``` correspondning to the time of pull request to keep track of it.
 
  ## Data Documentation
 
-One row equals one ML-Agents training run. Features capture hardware, environment, [hyperparameters configuration](https://unity-technologies.github.io/ml-agents/Training-Configuration-File/) (from YAML). Targets capture runtime and performance outcomes.
-The data is stored in CSV file (UTF-8).
+Data from runs are stored in two different CSV files.  **Main** file captures all the data that don't change during the run. That includes hardware specifications, information about environment and algorithm used together with [hyperparameters configuration](https://unity-technologies.github.io/ml-agents/Training-Configuration-File/). Data for *final* parameters are added at the end of each run. Here one row equals one ML-Agents training run.  
 
-| **Name**                 | **Type**      | **Unit**  | **Role**          | **Notes / Example**                         |
-|---------------------------|---------------|------------|-------------------|---------------------------------------------|
-| schema_version            | string        | --         | meta              | 1.0                                         |
-| run_id                    | string        | --         | meta              | 2025-10-23_G8_01                            |
-| date                      | date          | --         | meta              | YYYY-MM-DD                                  |
-| machine_id                | string        | --         | meta              | filippo-laptop                              |
-| os_name                   | string        | --         | feature           | Windows 11 / Ubuntu 22.04 / macOS 14        |
-| cpu_model                 | string        | --         | feature           | Intel i7-12700H / M2 Pro                    |
-| cpu_cores                 | int           | count      | feature           | 14                                          |
-| cpu_clock_ghz             | float         | GHz        | feature           | 3.5                                         |
-| ram_gb                    | int           | GB         | feature           | 16 / 32 / 64                                |
-| gpu_model                 | string        | --         | feature           | RTX 3060 / Apple M2 GPU                     |
-| gpu_vram_gb               | float - null | GB      | feature           | 6.0 / null                                  |
-| env_id                    | string        | --         | feature           | FoodCollector / 3DBall                      |
-| env_variant               | string        | --         | feature           | default / hard                              |
-| algo                      | string        | --         | feature           | PPO / SAC / Imitation / POCA                |
-| seed                      | int           | --         | meta              | random                                      |
-| learning_rate             | float         | --         | feature           | 3e-4                                        |
-| batch_size                | int           | samples    | feature           | 1024 / 2048 / 4096                          |
-| buffer_size               | int           | samples    | feature           | 20480 / 40960 / 65536                       |
-| gamma                     | float         | --         | feature           | 0.99 / 0.995                                |
-| lambda                    | float         | --         | feature           | 0.95 / 0.97                                 |
-| hidden_units              | int           | neurons    | feature           | 128 / 256 / 512                             |
-| num_layers                | int           | layers     | feature           | 2 / 3                                       |
-| steps_planned             | int           | steps      | feature           | 120000--300000                              |
-| steps_completed           | int           | steps      | meta              | = steps_planned                             |
-| wallclock_s               | float         | s          | **target**        | e.g., 3589.4                                |
-| time_to_threshold_s       | float - null | s      | **target**        | null if not reached                         |
-| final_reward              | float         | --         | **target**        | e.g., 1.52                                  |
-| cpu_util_mean_pct         | float         | %          | feature           | ~55--80                                     |
-| ram_peak_mb               | float         | MB         | **target**        | e.g., 7350                                  |
-| gpu_util_mean_pct         | float - null | %      | feature           | e.g., 45.0 / null                           |
-| notes                     | string        | --         | meta              | any additional notes                                   |
+In the **Run logging** file we store results of real-time hardware monitoring together with steps, time and reward observed. Here each row is a summary we get every couple thousand of steps.
 
-## File naming
+The parameters that we use, can be found in the following tables:
 
-Files should be stored in the directory ```env``` with the name ```YYYYMMDD__HHMM__machine.csv``` where:
-- ```env``` refers the enviroment id, named in the same way as [ML_agents](https://github.com/DennisSoemers/ml-agents/tree/develop/Project/Assets/ML-Agents/Examples)
-- ```YYYYMMDD__HHMM``` describes time with precision to minutes
-- ```machine``` is the value of machine_id column specified in the file
+
+### Main Table
+
+| **Name**                         | **Type**   | **Unit** | **Group** | **Notes**|
+|----------------------------------|------------|----------|------------------|----------------------|
+| run_id                           | string     | --       | common           | machine_id + date in ```YYYYMMDD__HHMM``` format|
+| algo                             | string     | --       | common           | PPO / SAC |
+| seed                             | int        | --       | common           | random int |
+| env_name                         | string     | --       | common           | 3D Ball |
+| os_name                          | string     | --       | hardware         | Windows 11 / Ubuntu 22.04 / macOS 14|
+| cpu_physical_cores               | int        | count    | hardware         |  
+| cpu_logical_cores                | int        | threads  | hardware         |  
+| cpu_clock_ghz                    | float      | GHz      | hardware         | 
+| ram_mb                           | int        | MB       | hardware         | 
+| init_ram_usage                   | float      | MB       | hardware         | initial RAM usage |
+| init_cpu_usage                   | float      | %        | hardware         | initial CPU load |
+| final_ram_usage                  | float      | MB       | delta            | 
+| final_cpu_usage                  | float      | %        | delta            | 
+| learning_rate                    | float      | --       | common yaml      | 
+| learning_rate_schedule           | string     | --       | common yaml      | 
+| batch_size                       | int        | samples  | common yaml      | 
+| buffer_size                      | int        | samples  | common yaml      | 
+| normalize                        | bool       | --       | common yaml      | 
+| hidden_units                     | int        | neurons  | common yaml      | 
+| num_layers                       | int        | layers   | common yaml      | 
+| vis_encode_type                  | string     | --       | common yaml      | 
+| gamma                            | float      | --       | common yaml      | 
+| strength                         | float      | --       | common yaml      | reward strength |
+| keep_checkpoints                 | int        | count    | common yaml      | number of checkpoints |
+| max_steps                        | int        | steps    | common yaml      | planned steps |
+| time_horizon                     | int        | steps    | common yaml      |
+| summary_freq                     | int        | steps    | common yaml      | logging frequency |
+| buffer_init_steps                | int        | steps    | sac              |  |
+| tau                              | float      | --       | sac              |  |
+| steps_per_update                 | int        | steps    | sac              | |
+| save_replay_buffer               | bool       | --       | sac              | 
+| init_entcoef                     | float      | --       | sac              | 
+| reward_signal_steps_per_update   | int        | steps    | sac              |  |
+| beta                             | float      | --       | ppo              |  |
+| epsilon                          | float      | --       | ppo              | |
+| lambd                            | float      | --       | ppo              |  |
+| num_epoch                        | int        | epochs   | ppo              |  |
+| train_duration_s                 | float      | s        | final            | total training time |
+| time_to_convergence              | float/null | s        | final            | null if no convergence |
+| steps_to_convergence             | int/null   | steps    | final            | null if no convergence |
+
+### Run logging table
+
+Since the run logging files have to be recognised by the main run file, their name is the same as run_id.
+
+
+| **Name**        | **Type** | **Unit** | **Group** | **Notes** |
+|-----------------|----------|----------|------------------|----------------------|
+| avg_ram_usage   | float    | MB       | hardware         | average RAM usage |
+| avg_cpu_usage   | float    | %        | hardware         | average CPU usage |
+| avg_gpu_usage   | float    | %        | hardware         | null if no GPU |
+| steps           | int      | steps    | observe          | current step count |
+| time_elapsed    | float    | s        | observe          | elapsed time |
+| mean_reward     | float    | --       | observe          | mean reward |
+| std_of_reward   | float    | --       | observe          | reward standard deviation |
+
