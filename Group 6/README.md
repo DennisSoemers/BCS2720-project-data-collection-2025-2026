@@ -5,6 +5,8 @@
 
 [```thresholds/```](https://github.com/omarelfiki/unity-ml-drl-data/blob/main/data/thresholds) provides the archived threshold at each data collection point based on datetime.
 
+```combined_results_old.csv``` contain some inital testing results. These values are excluded from the final ML prediction and analysis due to incompletion and inaccuracies found in data from early versions of our testing runner.
+
 ## Understanding Results
 
 ### Research Question
