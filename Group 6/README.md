@@ -5,6 +5,8 @@
 
 [```thresholds/```](https://github.com/omarelfiki/unity-ml-drl-data/blob/main/data/thresholds) provides the archived threshold at each data collection point based on datetime.
 
+```combined_results_old.csv``` contain some inital testing results. These values are excluded from the final ML prediction and analysis due to incompletion and inaccuracies found in data from early versions of our testing runner.
+
 ## Understanding Results
 
 ### Research Question
@@ -32,9 +34,15 @@ an agent to reach a performance threshold using initial configuration and early 
 | `total_time`                  | float    | Wall-clock time in seconds                                      |
 | `average_cpu`                 | float    | Average CPU utilization (0–100)                                 |
 | `average_ram`                 | float    | Average RAM utilization (0–100)                                 |
-| `step_interval`               | int      | Step interval used for computing running means                  |
 | `reward_mean`                 | float    | Average policy reward                                           |
 | `reward_mean_step`            | int      | Step index where reward aggregation starts                      |
+| `best_reward`                 | float    | Best policy reward reached before training timeout              |
+| `best_reward_step`            | int      | Step where best reward was reached                              |
+| `early_reward_mean`           | float    | Earliest captured reward mean over first summary window         |
+| `early_reward_mean_step`      | int      | Step where the early reward mean was recorded                   |
+| `final_reward_mean`           | float    | Last captured reward mean over final summary window             |
+| `final_reward_mean_step`      | int      | Step where the final reward mean was recorded                   |
+| `step_interval`               | int      | Step interval used for computing running means                  |
 | `p_loss_mean`                 | float    | Average policy loss                                             |
 | `p_loss_mean_step`            | int      | Step index where policy-loss aggregation starts                 |
 | `v_loss_mean`                 | float    | Average value loss                                              |
@@ -46,5 +54,4 @@ an agent to reach a performance threshold using initial configuration and early 
 | `steps_to_threshold`          | int      | Step taken to reach threshold                                   |
 | `time_to_threshold`           | int      | Time in seconds to reach the threshold                          |
 | `run_reached_threshold`       | bool     | Whether the threshold was reached                               |
-| `best_reward_before_timeout`  | int      | Best policy reward reached before training timeout              |
-| `step_of_best_reward`         | int      | Step where best reward was reached                              |
+
