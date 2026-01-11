@@ -62,16 +62,18 @@ The parameters that we use, can be found in the following tables:
 
 ### Run logging table
 
-Since the run logging files have to be recognised by the main run file, their name is the same as run_id.
-
+Run logging file *run_logs.csv* can be found in a directory named after **run_id** from the Main csv.
 
 | **Name**        | **Type** | **Unit** | **Group** | **Notes** |
 |-----------------|----------|----------|------------------|----------------------|
-| avg_ram_usage   | float    | MB       | hardware         | average RAM usage |
-| avg_cpu_usage   | float    | %        | hardware         | average CPU usage |
-| avg_gpu_usage   | float    | %        | hardware         | null if no GPU |
-| steps           | int      | steps    | observe          | current step count |
-| time_elapsed    | float    | s        | observe          | elapsed time |
-| mean_reward     | float    | --       | observe          | mean reward |
+| step_number     | int      | steps    | observe          | current step count |
+| time_elapsed    | float    | s        | observe          | 
+| mean_reward     | float    | --       | observe          | 
 | std_of_reward   | float    | --       | observe          | reward standard deviation |
+| cpu_percent     | float    | %        | hardware         | CPU usage |
+| cpu_source      | string   | --        | hardware         | 
+| ram_percent     | float    | %        | hardware         | RAM usage |
+| ram_source      | string   | --        | hardware         | 
+| ram_mb          | float    | MB       | hardware         | RAM usage in MB |
+
 
