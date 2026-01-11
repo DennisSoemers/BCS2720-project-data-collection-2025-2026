@@ -15,19 +15,21 @@ The parameters that we use, can be found in the following tables:
 
 | **Name**                         | **Type**   | **Unit** | **Group** | **Notes**|
 |----------------------------------|------------|----------|------------------|----------------------|
-| run_id                           | string     | --       | common           | machine_id + date in ```YYYYMMDD__HHMM``` format|
+| run_id                           | string     | --       | common           | machine_id + algo + config name |
+| machine_id                       | string     | --       | common           | username + os_name |
+| run_log_file                     | string     | --       | common           | path to the run logging file |
 | algo                             | string     | --       | common           | PPO / SAC |
 | seed                             | int        | --       | common           | random int |
 | env_name                         | string     | --       | common           | 3D Ball |
-| os_name                          | string     | --       | hardware         | Windows 11 / Ubuntu 22.04 / macOS 14|
+| os_name                          | string     | --       | hardware         | Windows / Ubuntu / macOS|
 | cpu_physical_cores               | int        | count    | hardware         |  
 | cpu_logical_cores                | int        | threads  | hardware         |  
 | cpu_clock_ghz                    | float      | GHz      | hardware         | 
 | ram_mb                           | int        | MB       | hardware         | 
-| init_ram_usage                   | float      | MB       | hardware         | initial RAM usage |
-| init_cpu_usage                   | float      | %        | hardware         | initial CPU load |
-| final_ram_usage                  | float      | MB       | delta            | 
-| final_cpu_usage                  | float      | %        | delta            | 
+| avg_cpu_usage                    | float      | %        | hardware         | 
+| avg_ram_usage                    | float      | MB       | hardware         | 
+| peak_cpu_usage                   | float      | %        | hardware         | 
+| peak_ram_usage                   | float      | MB       | hardware         | 
 | learning_rate                    | float      | --       | common yaml      | 
 | learning_rate_schedule           | string     | --       | common yaml      | 
 | batch_size                       | int        | samples  | common yaml      | 
@@ -53,6 +55,8 @@ The parameters that we use, can be found in the following tables:
 | lambd                            | float      | --       | ppo              |  |
 | num_epoch                        | int        | epochs   | ppo              |  |
 | train_duration_s                 | float      | s        | final            | total training time |
+| final_mean_reward                | float      | --       | final        | final mean reward |
+| final_std_reward                 | float      | --       | final         | final standard deviation of the reward |
 | time_to_convergence              | float/null | s        | final            | null if no convergence |
 | steps_to_convergence             | int/null   | steps    | final            | null if no convergence |
 
