@@ -1,6 +1,13 @@
 # Group 8
+
+## Main info
+Environment used: **3D Ball**
+Algortihms used: **PPO** and **SAC**
+
+## Data collection process
+
 First, group members add generated data to the [forked repository](https://github.com/qba24qba/BCS2720-project-data-collection-2025-2026.git) where they can still be edited.
- The finalized data are merged into the [collaborative collection repository](https://github.com/DennisSoemers/BCS2720-project-data-collection-2025-2026) via the pull request and are not deleted nor overwritten as they might be currently used by others. Committed files should be stored in the directory with the name ```YYYYMMDD__HHMM``` correspondning to the time of pull request to keep track of it.
+ The finalized data are merged into the [collaborative collection repository](https://github.com/DennisSoemers/BCS2720-project-data-collection-2025-2026) via the pull request and are not deleted nor overwritten as they might be currently used by other groups.
 
  ## Data Documentation
 
