@@ -54,35 +54,35 @@ Note: `old_dataset.csv` originally contained many more training runs but had sig
 - Hyperparameters are specified before ML training begins
 
 - Source of Origin: User
--- run_id
+  - run_id
 
 - Source of Origin: Program
--- timestamp
+  - timestamp
 
 - Source of Origin: System Query
--- cpu_model
--- cpu_cores
--- cpu_frequency
--- total_ram
--- gpu_model
--- operating_system 
+  - cpu_model
+  - cpu_cores
+  - cpu_frequency
+  - total_ram
+  - gpu_model
+  - operating_system 
 
 
 - Source of Origin: Training Configuration File
--- drl_algorithm
--- batch_size
--- buffer_size
--- learning_rate
--- beta
--- epsilon
--- lambda
--- num_epoch
--- normalize
--- hidden_units
--- num_layers
--- gamma
--- max_steps
--- time_horizon
+  - drl_algorithm
+  - batch_size
+  - buffer_size
+  - learning_rate
+  - beta
+  - epsilon
+  - lambda
+  - num_epoch
+  - normalize
+  - hidden_units
+  - num_layers
+  - gamma
+  - max_steps
+  - time_horizon
 
 - Source of Origin: Data Log
 -- cumulative_reward_mean 
