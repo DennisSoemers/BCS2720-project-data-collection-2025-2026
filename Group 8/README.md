@@ -1,21 +1,42 @@
 # Group 8
 
-## Main info
+## training_data_1
 Environment used: **3D Ball**
+
 Algortihms used: **PPO** and **SAC**
+
+For both PPO and SAC configurations *buffer_size*, *hidden_units* and *num_layers* were the randomized parameters.
+
+In SAC configutarions also *buffer_init_steps*, *tau* and *gamma* were randomized.
+
+SAC runs data collection took too long, in possible future datasets it won't be included
+
+End of the run is defined as reaching convergence or max_steps.
+
+A run is considered converged when:
+
+- mean_reward ≥ 100  
+- std_reward / mean_reward ≤ 1
+
+The first window that satisfies these conditions determines:
+
+- `steps_to_convergence`
+- `time_to_convergence`
+
+If no window satisfies the criteria, these values remain `NA`.
+
+
 
 ## Data collection process
 
-First, group members add generated data to the [forked repository](https://github.com/qba24qba/BCS2720-project-data-collection-2025-2026.git) where they can still be edited.
- The finalized data are merged into the [collaborative collection repository](https://github.com/DennisSoemers/BCS2720-project-data-collection-2025-2026) via the pull request and are not deleted nor overwritten as they might be currently used by other groups.
+First, generated data are added to the [forked repository](https://github.com/qba24qba/BCS2720-project-data-collection-2025-2026.git) where they can still be edited.
+ The finalized data are merged into the [collaborative collection repository](https://github.com/DennisSoemers/BCS2720-project-data-collection-2025-2026) via the pull request and are not deleted nor overwritten as they might be currently used by other groups. New runs will be added to consecutive *training_data* directories. Description of datasets can be found at the beginning of this Readme. 
 
  ## Data Documentation
 
-Data from runs are stored in two different CSV files.  **Main** file captures all the data that don't change during the run. That includes hardware specifications, information about environment and algorithm used together with [hyperparameters configuration](https://unity-technologies.github.io/ml-agents/Training-Configuration-File/). Data for *final* parameters are added at the end of each run. Here one row equals one ML-Agents training run.  
+**Main** file captures data like hardware specifications, information about environment and algorithm used together with [hyperparameters configuration](https://unity-technologies.github.io/ml-agents/Training-Configuration-File/). Data for *final* parameters are added at the end of each run. Here one row equals one ML-Agents training run.  
 
-In the **Run logging** file we store results of real-time hardware monitoring together with steps, time and reward observed. Here each row is a summary we get every couple thousand of steps.
-
-The parameters that we use, can be found in the following tables:
+The parameters that we use, can be found in the following table:
 
 
 ### Main Table
@@ -67,20 +88,14 @@ The parameters that we use, can be found in the following tables:
 | time_to_convergence              | float/null | s        | final            | null if no convergence |
 | steps_to_convergence             | int/null   | steps    | final            | null if no convergence |
 
-### Run logging table
+---
 
-Run logging file *run_logs.csv* can be found in a directory named after **run_id** from the Main csv.
+### Encoded_dataset
 
-| **Name**        | **Type** | **Unit** | **Group** | **Notes** |
-|-----------------|----------|----------|------------------|----------------------|
-| step_number     | int      | steps    | observe          | current step count |
-| time_elapsed    | float    | s        | observe          | 
-| mean_reward     | float    | --       | observe          | 
-| std_of_reward   | float    | --       | observe          | reward standard deviation |
-| cpu_percent     | float    | %        | hardware         | CPU usage |
-| cpu_source      | string   | --        | hardware         | 
-| ram_percent     | float    | %        | hardware         | RAM usage |
-| ram_source      | string   | --        | hardware         | 
-| ram_mb          | float    | MB       | hardware         | RAM usage in MB |
-
+**Encoded_dataset** is derived from *main* dataset. It was adjusted to use in our own models. The differences are:
+- description columns like: *run_id*, *machine_id*, *run_log_file*, *env_name* were dropped
+- *algo* column changed into binary *algo_sac*, which indicates sac if TRUE ppo if FALSE
+- *os_name* column was dropped and binary *os_name_Windows*, *os_name_macOS* were added
+- column with binary variable *converged* was added
+- N.A. values were changed to numerical 0.0
 
