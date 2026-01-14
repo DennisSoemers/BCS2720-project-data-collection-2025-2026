@@ -1,36 +1,9 @@
 # Group 8
 
-## training_data_1
-Environment used: **3D Ball**
-
-Algortihms used: **PPO** and **SAC**
-
-For both PPO and SAC configurations *buffer_size*, *hidden_units* and *num_layers* were the randomized parameters.
-
-In SAC configutarions also *buffer_init_steps*, *tau* and *gamma* were randomized.
-
-SAC runs data collection took too long, in possible future datasets it won't be included
-
-End of the run is defined as reaching convergence or max_steps.
-
-A run is considered converged when:
-
-- mean_reward ≥ 100  
-- std_reward / mean_reward ≤ 1
-
-The first window that satisfies these conditions determines:
-
-- `steps_to_convergence`
-- `time_to_convergence`
-
-If no window satisfies the criteria, these values remain `NA`.
-
-
-
 ## Data collection process
 
 First, generated data are added to the [forked repository](https://github.com/qba24qba/BCS2720-project-data-collection-2025-2026.git) where they can still be edited.
- The finalized data are merged into the [collaborative collection repository](https://github.com/DennisSoemers/BCS2720-project-data-collection-2025-2026) via the pull request and are not deleted nor overwritten as they might be currently used by other groups. New runs will be added to consecutive *training_data* directories. Description of datasets can be found at the beginning of this Readme. 
+ The finalized data are merged into the [collaborative collection repository](https://github.com/DennisSoemers/BCS2720-project-data-collection-2025-2026) via the pull request and are not deleted nor overwritten as they might be currently used by other groups. New runs will be added to consecutive *training_data* directories. Description of datasets can be found at the end of this Readme. 
 
  ## Data Documentation
 
@@ -98,4 +71,31 @@ The parameters that we use, can be found in the following table:
 - *os_name* column was dropped and binary *os_name_Windows*, *os_name_macOS* were added
 - column with binary variable *converged* was added
 - N.A. values were changed to numerical 0.0
+
+## Datasets description per version
+
+### training_data_1
+Environment used: **3D Ball**
+
+Algortihms used: **PPO** and **SAC**
+
+For both PPO and SAC configurations *buffer_size*, *hidden_units* and *num_layers* were the randomized parameters.
+
+In SAC configutarions also *gamma*, *time_horizon*, *buffer_init_steps*, *tau*, *steps_per_update*, *init_entcoef* and *reward_signal_steps_per_update* were randomized.
+
+SAC runs data collection took too long, in possible future datasets it won't be included
+
+End of the run is defined as reaching convergence or max_steps (in this dataset max_steps ie either: 10000000 or 2000000).
+
+A run is considered converged when:
+
+- mean_reward ≥ 100  
+- std_reward / mean_reward ≤ 1
+
+The first window that satisfies these conditions determines:
+
+- `steps_to_convergence`
+- `time_to_convergence`
+
+If no window satisfies the criteria, these values remain `NA`.
 
