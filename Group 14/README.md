@@ -1,22 +1,32 @@
 # Group 14
 
-## Data Metrics
-The following list contains the names of each column in our CSV tables and their corresponding descriptions.
+# Data Metrics Documentation
 
-- step - The number of steps taken by the model
-- mean_reward - The average reward
-- mean_group_reward - The average of the group (only applicable to multi-agent environments)
-- std_reward - The standard deviation of the reward
-- time_elapsed - The time elapsed of training
-- run_id - The name of the training session
-- environment - The training environment (single-, multi-agent, or uknown)
-- algorithm - The algorithm used to train
-- memory_usage_avg_mb - Average memory usage in MB
-- memory_usage_peak_mb - Peak memory usage in MB
-- cpu_usage_avg_mb - Average CPU usage in MB
-- cpu_usage_peak_mb - Peak CPU usage in MB
-- gpu_usage_avg_mb - Average GPU usage in MB
-- gpu_usage_peak_mb - Peak GPU usage in MB
+The list below contains the metrics that the scripts calculate and store. The names of the columns in the CSV table are the same as these:
 
-## Tensorflow Statistics
-The `SCTWRUN2-additional-data` package contains Tensorflow generated statistics for the SoccerTwos data.
+- **step** - The number of steps performed.
+- **mean_reward** - The mean reward for the current run.
+- **mean_group_reward** - The mean reward of the group for the current run, applicable only to multi-agent environments.
+- **std_reward** - The standard deviation of the reward.
+- **time_elapsed** - The time elapsed of the current run.
+- **memory_usage_avg_mb** - Average memory usage in MB.
+- **memory_usage_peak_mb** - Peak memory usage in MB.
+- **cpu_usage_avg_percent** - Average CPU usage in percent.
+- **cpu_usage_peak_percent** - Peak CPU usage in percent.
+- **gpu_usage_avg_mb** - Average GPU usage in MB (can not be calculated if your system has an integrated graphics card).
+- **gpu_usage_peak_mb** - Peak GPU usage in MB.
+- **trainer_type** - The algorithm used by the agent.
+- **policy_entropy** - Policy entropy.
+- **losses_policy_loss** - Policy loss.
+- **losses_value_loss** - Value loss.
+
+Recorded hyperparameter values:
+
+- **batch_size**
+- **buffer_size**
+- **learning_rate**
+- **beta**
+- **epsilon**
+- **lambd**
+- **num_epoch**
+- **learning_rate_schedule**
