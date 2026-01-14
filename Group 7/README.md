@@ -85,8 +85,8 @@ Note: `old_dataset.csv` originally contained many more training runs but had sig
   - time_horizon
 
 - Source of Origin: Data Log
--- cumulative_reward_mean 
--- time_elapased_seconds
+  - cumulative_reward_mean 
+  - time_elapased_seconds
 
 - One row is written in the dataset once training ends with recorded results
 
