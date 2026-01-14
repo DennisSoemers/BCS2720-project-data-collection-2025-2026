@@ -1,8 +1,9 @@
 # Group 7
 ## Overview
-This dataset contains the training runs of Project Group 7. 
+These datasets contain the training runs of Project Group 7. 
 Each row is a single training run distinguished by run_id.
 Each column is either navigation data, hardware specifications, ML hyperparameters, or recorded results for training time and performance.
+Note: `old_dataset.csv` originally contained many more training runs but had significantly skewed data. The current dataset in use is `new_data.csv`, which aims to address and mitigate this issue. 
 
 
 ### Navigation data
