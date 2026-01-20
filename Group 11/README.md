@@ -1,11 +1,12 @@
 # Group 11
 
-## Research Question
-Can we predict average and peak RAM and CPU a training will reach?
+## Research Questions
+1. Can we predict average and peak RAM and CPU a training will reach?
+2. Can we predict how deep into a training process an agent will be able to reach a certain relevant threshold level of performance?
 
 ## Dataset
 ### Training data
-The file [```PushBlock-training-20251127.csv```] provides the first sample of data collected for the Unity environment PushBlock. Below is an explanatory table for each feature provided in the file.
+1. The file [```PushBlock-training-20251127.csv```] provides the first sample of data collected for the Unity environment PushBlock. Below is an explanatory   table for each feature provided in the file.
 
 ### Dataset Explanation
 | **Feature**                   | **Description**                                                 |
@@ -38,3 +39,12 @@ The file [```PushBlock-training-20251127.csv```] provides the first sample of da
 | `ram_avg_python`              | Average RAM of Python script (running ml-agents) per training   |
 | `ram_peak_python`             | Peak RAM of Python script (running ml-agents) per training      |
 | `duration_sec`                | Training duration in seconds                                    |
+
+2. The file [```MeanReward_training_data.csv```] provides the data collected in the PushBlock environment to answer the second research question. Below is a short explanation of how the data is displayed.
+### Dataset Explanation
+| **Feature**                   | **Description**                                                 |
+|-------------------------------|-----------------------------------------------------------------|
+| `runNr`                       | Unique identifier per training                                  |
+| `nrSteps`                     | Step count                                                      |
+| `timeUnit`                    | A time unit is 60k steps                                        |
+| `meanReward`                  | It is the threshold we measure to answer our researach question |
