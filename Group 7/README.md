@@ -1,8 +1,9 @@
 # Group 7
 ## Overview
-This dataset contains the training runs of Project Group 7. 
+These datasets contain the training runs of Project Group 7. 
 Each row is a single training run distinguished by run_id.
 Each column is either navigation data, hardware specifications, ML hyperparameters, or recorded results for training time and performance.
+Note: `old_dataset.csv` originally contained many more training runs but had significantly skewed data. The current dataset in use is `new_data.csv`, which aims to address and mitigate this issue. 
 
 
 ### Navigation data
@@ -53,39 +54,39 @@ Each column is either navigation data, hardware specifications, ML hyperparamete
 - Hyperparameters are specified before ML training begins
 
 - Source of Origin: User
--- run_id
+  - run_id
 
 - Source of Origin: Program
--- timestamp
+  - timestamp
 
 - Source of Origin: System Query
--- cpu_model
--- cpu_cores
--- cpu_frequency
--- total_ram
--- gpu_model
--- operating_system 
+  - cpu_model
+  - cpu_cores
+  - cpu_frequency
+  - total_ram
+  - gpu_model
+  - operating_system 
 
 
 - Source of Origin: Training Configuration File
--- drl_algorithm
--- batch_size
--- buffer_size
--- learning_rate
--- beta
--- epsilon
--- lambda
--- num_epoch
--- normalize
--- hidden_units
--- num_layers
--- gamma
--- max_steps
--- time_horizon
+  - drl_algorithm
+  - batch_size
+  - buffer_size
+  - learning_rate
+  - beta
+  - epsilon
+  - lambda
+  - num_epoch
+  - normalize
+  - hidden_units
+  - num_layers
+  - gamma
+  - max_steps
+  - time_horizon
 
 - Source of Origin: Data Log
--- cumulative_reward_mean 
--- time_elapased_seconds
+  - cumulative_reward_mean 
+  - time_elapased_seconds
 
 - One row is written in the dataset once training ends with recorded results
 
